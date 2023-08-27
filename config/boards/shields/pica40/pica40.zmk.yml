@@ -1,0 +1,12 @@
+file_format: '1'
+id: pica40
+name: pica40
+type: shield
+url: https://github.com/zzeneg/pica40
+requires: [seeeduino_xiao_ble]
+features:
+  - keys
+  - encoder
+siblings:
+  - pica40_left
+  - pica40_right
