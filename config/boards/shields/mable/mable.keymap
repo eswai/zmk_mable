@@ -34,9 +34,9 @@
         lower_layer {
             bindings = <
             // +----------+----------+----------+----------+----------+----------+----------+----------+----------+----------
-                &kp TAB    &kp EXCL   &kp AT     &kp HASH   &kp DLLR   &kp SLASH  &kp N7     &kp N8     &kp N9     &kp PLUS
-                &kp ESC    &kp PRCNT  &kp CARET  &kp AMPS   &kp GRAVE  &kp ASTRK  &kp N4     &kp N5     &kp N6     &kp MINUS
-                &none      &none      &kp PIPE   &kp UNDER  &kp TILDE  &kp N0     &kp N1     &kp N2     &kp N3     &kp EQUAL     
+                &kp TAB    &kp COLON  &kp SEMI   &kp DQT    &kp SQT    &kp SLASH  &kp N7     &kp N8     &kp N9     &kp MINUS
+                &kp ESC    &kp LBKT   &kp LBRC   &kp LPAR   &none      &kp ASTRK  &kp N4     &kp N5     &kp N6     &kp PLUS
+                &none      &kp RBKT   &kp RBRC   &kp RPAR   &none      &kp N0     &kp N1     &kp N2     &kp N3     &kp EQUAL     
                                       &trans     &trans     &trans     &trans     &trans     &trans
                 >;
         };
@@ -44,19 +44,19 @@
         raise_layer {
             bindings = <
             // +----------+----------+----------+----------+----------+----------+----------+----------+----------+----------
-                &none      &none      &kp SQT    &kp DQT    &none      &none      &kp HOME   &kp UP     &kp END    &kp BSPC
-                &none      &kp LBKT   &kp LBRC   &kp LPAR   &none      &none      &kp LEFT   &kp DOWN   &kp RIGHT  &kp DEL
-                &none      &kp RBKT   &kp RBRC   &kp RPAR   &none      &none      &none      &none      &none      &none
-                                      &trans     &trans     &trans     &trans     &trans     &trans
+                &kp TILDE  &kp AT     &kp HASH   &kp DLLR   &kp LG(X)  &kp LG(Z)   &kp HOME   &kp UP     &kp END    &kp BSPC
+                &kp CARET  &kp AMPS   &kp QMARK  &kp PRCNT  &kp LG(C)  &kp LG(S)   &kp LEFT   &kp DOWN   &kp RIGHT  &kp DEL
+                &kp GRAVE  &kp PIPE   &kp EXCL   &kp UNDER  &kp LG(V)  &kp LG(Y)   &none      &none      &none      &none
+                                      &trans     &trans     &trans     &trans      &trans     &trans
                 >;
         };
 
         adjust_layer {
             bindings = <
             // +-------- --+----------+----------+----------+----------+----------+----------+----------+----------+----------
-                &bootloader &bt BT_NXT &none      &none      &none      &none      &none      &none      &none      &bootloader 
-                &sys_reset  &bt BT_PRV &none      &none      &none      &none      &none      &none      &none      &sys_reset  
-                &bt BT_CLR  &none      &none      &none      &none      &none      &none      &none      &none      &none
+                &bootloader &bt BT_NXT &none      &none      &none      &none      &kp F7     &kp F8     &kp F9     &bootloader 
+                &sys_reset  &bt BT_PRV &none      &none      &none      &none      &kp F4     &kp F5     &kp F6     &sys_reset  
+                &bt BT_CLR  &none      &none      &none      &none      &kp F10    &kp F1     &kp F2     &kp F3     &none
                                        &trans     &trans     &trans     &trans     &trans     &trans
                 >;
         };
