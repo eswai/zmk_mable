@@ -6,7 +6,6 @@ url: https://github.com/eswai/mable
 requires: [seeeduino_xiao_ble]
 features:
   - keys
-  - encoder
 siblings:
   - mable_left
   - mable_right

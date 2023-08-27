@@ -3,98 +3,12 @@
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/outputs.h>
 
-#define QWERTY 0
-#define LOWER  1
-#define RAISE  2
-#define ADJUST 3
-
-&mt {
-    tapping-term-ms = <160>;
-    flavor = "tap-preferred";
-};
-
-&lt {
-    tapping-term-ms = <160>;
-    flavor = "tap-preferred";
-};
+#define DEFAULT 0
+#define LOWER   1
+#define RAISE   2
+#define ADJUST  3
 
 / {
-
-    behaviors {
-        hm: homerow_mods {
-            compatible = "zmk,behavior-hold-tap";
-            label = "HOMEROW_MODS";
-            #binding-cells = <2>;
-            tapping-term-ms = <160>;
-            quick-tap-ms = <0>;
-            flavor = "tap-preferred";
-            bindings = <&kp>, <&kp>;
-        };
-        hr: homerow_mods_ring_finger {
-            compatible = "zmk,behavior-hold-tap";
-            label = "HOMEROW_MODS_RING_FINGER";
-            #binding-cells = <2>;
-            tapping-term-ms = <190>;
-            quick-tap-ms = <0>;
-            flavor = "tap-preferred";
-            bindings = <&kp>, <&kp>;
-        };
-        hp: homerow_mods_pinky_finger {
-            compatible = "zmk,behavior-hold-tap";
-            label = "HOMEROW_MODS_PINKY_FINGER";
-            #binding-cells = <2>;
-            tapping-term-ms = <220>;
-            quick-tap-ms = <0>;
-            flavor = "tap-preferred";
-            bindings = <&kp>, <&kp>;
-        };
-        tm: thumb_mods {
-            compatible = "zmk,behavior-hold-tap";
-            label = "THUMB_MODS";
-            #binding-cells = <2>;
-            tapping-term-ms = <160>;
-            quick-tap-ms = <160>;
-            flavor = "tap-preferred";
-            bindings = <&kp>, <&kp>;
-        };
-        lh: layer_hold {
-            compatible = "zmk,behavior-hold-tap";
-            label = "LAYER_HOLD";
-            #binding-cells = <2>;
-            tapping-term-ms = <160>;
-            quick-tap-ms = <160>;
-            flavor = "tap-preferred";
-            bindings = <&mo>, <&kp>;
-        };
-
-        // Easy alt-tab with alt+backspace thumb using mod-morphs
-        bstab: backspace_tab {
-            compatible = "zmk,behavior-mod-morph";
-            label = "BSPC_TAB";
-            #binding-cells = <0>;
-            bindings = <&kp BSPC>, <&kp TAB>;
-            mods = <MOD_LALT>;
-        };
-        lt_bspc: layer_tap_backspace_tab {
-            compatible = "zmk,behavior-hold-tap";
-            label = "LT_BT";
-            #binding-cells = <2>;
-            tapping-term-ms = <150>;
-            flavor = "balanced";
-            bindings = <&mo>, <&bstab>;
-        };
-    };
-
-    combos {
-        compatible = "zmk,combos";
-
-        combo_caps {
-            timeout-ms = <50>;
-            key-positions = <14 17>;
-            layers = <0>;
-            bindings = <&caps_word>;
-        };
-    };
 
     conditional_layers {
         compatible = "zmk,conditional-layers";
@@ -120,9 +34,9 @@
         lower_layer {
             bindings = <
             // +----------+----------+----------+----------+----------+----------+----------+----------+----------+----------
-                &kp TAB    &none      &none      &none      &none      &kp SLASH  &kp N7     &kp N8     &kp N9     &kp PLUS
-                &kp ESC    &none      &none      &none      &none      &kp ASTRK  &kp N4     &kp N5     &kp N6     &kp MINUS
-                &none      &none      &none      &none      &none      &kp N0     &kp N1     &kp N2     &kp N3     &kp EQUAL     
+                &kp TAB    &kp EXCL   &kp AT     &kp HASH   &kp DLLR   &kp SLASH  &kp N7     &kp N8     &kp N9     &kp PLUS
+                &kp ESC    &kp PRCNT  &kp CARET  &kp AMPS   &kp GRAVE  &kp ASTRK  &kp N4     &kp N5     &kp N6     &kp MINUS
+                &none      &none      &kp PIPE   &kp UNDER  &kp TILDE  &kp N0     &kp N1     &kp N2     &kp N3     &kp EQUAL     
                                       &trans     &trans     &trans     &trans     &trans     &trans
                 >;
         };
@@ -130,20 +44,20 @@
         raise_layer {
             bindings = <
             // +----------+----------+----------+----------+----------+----------+----------+----------+----------+----------
-                &none      &none      &none      &none      &none      &none      &kp HOME   &kp UP     &kp END    &kp BSPC
-                &none      &none      &none      &none      &none      &none      &kp LEFT   &kp DOWN   &kp RIGHT  &kp DEL
-                &none      &none      &none      &none      &none      &none      &none      &none      &none      &none
+                &none      &none      &kp SQT    &kp DQT    &none      &none      &kp HOME   &kp UP     &kp END    &kp BSPC
+                &none      &kp LBKT   &kp LBRC   &kp LPAR   &none      &none      &kp LEFT   &kp DOWN   &kp RIGHT  &kp DEL
+                &none      &kp RBKT   &kp RBRC   &kp RPAR   &none      &none      &none      &none      &none      &none
                                       &trans     &trans     &trans     &trans     &trans     &trans
                 >;
         };
 
         adjust_layer {
             bindings = <
-            // +----------+----------+----------+----------+----------+----------+----------+----------+----------+----------
-                &bt BT_CLR &none      &none      &none      &none      &none      &none      &none      &none      &none
-                &none      &none      &none      &none      &none      &none      &none      &none      &none      &none
-                &none      &none      &none      &none      &none      &none      &none      &none      &none      &none
-                                      &trans     &trans     &trans     &trans     &trans     &trans
+            // +-------- --+----------+----------+----------+----------+----------+----------+----------+----------+----------
+                &bootloader &bt BT_NXT &none      &none      &none      &none      &none      &none      &none      &bootloader 
+                &sys_reset  &bt BT_PRV &none      &none      &none      &none      &none      &none      &none      &sys_reset  
+                &bt BT_CLR  &none      &none      &none      &none      &none      &none      &none      &none      &none
+                                       &trans     &trans     &trans     &trans     &trans     &trans
                 >;
         };
 
