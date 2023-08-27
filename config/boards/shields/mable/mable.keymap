@@ -4,11 +4,9 @@
 #include <dt-bindings/zmk/outputs.h>
 
 #define QWERTY 0
-#define GAME 1
-#define NAV 2
-#define NUM 3
-#define SYM 4
-#define FUNC 5
+#define LOWER  1
+#define RAISE  2
+#define ADJUST 3
 
 &mt {
     tapping-term-ms = <160>;
@@ -103,57 +101,41 @@
 
         default_layer {
             bindings = <
-                           &kp Q       &kp W       &kp E        &kp R        &kp T        &kp Y  &kp U        &kp I        &kp O       &kp P
-                &kp EQUAL  &hp LGUI A  &hr LALT S  &hm LCTRL D  &hm LSHFT F  &kp G        &kp H  &hm RSHFT J  &hm RCTRL K  &hr LALT L  &hp RGUI SEMI  &kp SQT
-                &kp MINUS  &kp Z       &kp X       &kp C        &kp V        &kp B        &kp N  &kp M        &kp COMMA    &kp DOT     &kp FSLH       &kp GRAVE
-                                            &lt FUNC ESC  &lt NUM TAB  &lh SYM SPACE    &lt FUNC ENTER  &lh NAV BSPC  &tm RALT DEL
-                >;
-
-            sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP>;
-        };
-
-        game_layer {
-            bindings = <
-                                 &kp Q   &kp W  &kp E  &kp R  &kp T        &kp Y  &kp U  &kp I      &kp O    &kp P
-                &hm LALT EQUAL   &kp A   &kp S  &kp D  &kp F  &kp G        &kp H  &kp J  &kp K      &kp L    &kp SEMI  &hm LGUI SQT
-                &hm LSHFT MINUS  &kp Z   &kp X  &kp C  &kp V  &kp B        &kp N  &kp M  &kp COMMA  &kp DOT  &kp FSLH  &tog GAME
-                            &hm LCTRL ESC  &lt NUM TAB  &lh SYM SPACE    &lt FUNC ENTER  &lh NAV BSPC  &tm RALT DEL
+            // +----------+----------+----------+----------+----------+----------+----------+----------+----------+----------
+                &kp Q      &kp W      &kp E      &kp R      &kp T      &kp Y      &kp U      &kp I      &kp O      &kp P
+                &kp A      &kp S      &kp D      &kp F      &kp G      &kp H      &kp J      &kp K      &kp L      &kp SEMI
+                &kp Z      &kp X      &kp C      &kp V      &kp B      &kp N      &kp M      &kp COMMA  &kp DOT    &kp FSLH     
+                                 &lt FUNC ESC    &mo LOWER  &kp SPACE  &kp ENTER  &mo RAISE  &tm RALT DEL
                 >;
         };
 
-        nav_layer {
+        lower_layer {
             bindings = <
-                       &none     &none     &none      &none      &none        &none         &none     &kp PG_DN  &kp PG_UP  &none
-                &none  &kp LGUI  &kp LALT  &kp LCTRL  &kp LSHFT  &kp G        &kp LA(UP)    &kp LEFT  &kp DOWN   &kp UP     &kp RIGHT  &kp INS
-                &none  &none     &none     &none      &none      &none        &kp LA(DOWN)  &kp HOME  &kp END    &none      &none      &none
-                                                     &none  &none  &none    &none  &trans  &none
+            // +----------+----------+----------+----------+----------+----------+----------+----------+----------+----------
+                &kp TAB    &none      &none      &none      &none      &kp SLASH  &kp N7     &kp N8     &kp N9     &kp PLUS
+                &kp ESC    &none      &none      &none      &none      &kp ASTRK  &kp N4     &kp N5     &kp N6     &kp MINUS
+                &none      &none      &none      &none      &none      &kp N0     &kp N1     &kp N2     &kp N3     &kp EQUAL     
+                                      &trans     &trans     &trans     &trans     &trans     &trans
                 >;
         };
 
-        number_layer {
+        raise_layer {
             bindings = <
-                           &kp BSLH   &kp N7  &kp N8  &kp N9  &kp N0          &none  &none      &none      &none     &none
-                &kp LCTRL  &kp COMMA  &kp N4  &kp N5  &kp N6  &kp LBKT        &none  &kp RSHFT  &kp RCTRL  &kp LALT  &kp RGUI  &none
-                &kp DEL    &kp DOT    &kp N1  &kp N2  &kp N3  &kp RBKT        &none  &none      &none      &none     &none     &none
-                                                &kp GRAVE  &trans  &none    &none  &none  &none
+            // +----------+----------+----------+----------+----------+----------+----------+----------+----------+----------
+                &none      &none      &none      &none      &none      &none      &kp HOME   &kp UP     &kp END    &kp BSPC
+                &none      &none      &none      &none      &none      &none      &kp LEFT   &kp DOWN   &kp RIGHT  &kp DEL
+                &none      &none      &none      &none      &none      &none      &none      &none      &none      &none
+                                      &trans     &trans     &trans     &trans     &trans     &trans
                 >;
         };
 
-        symbol_layer {
+        adjust_layer {
             bindings = <
-                           &kp PIPE  &kp AMPS  &kp STAR   &kp LPAR   &kp RPAR        &none  &none      &none      &none     &none
-                &kp LCTRL  &kp LT    &kp DLLR  &kp PRCNT  &kp CARET  &kp LBRC        &none  &kp RSHFT  &kp RCTRL  &kp LALT  &kp RGUI  &none
-                &kp BSPC   &kp GT    &kp EXCL  &kp AT     &kp HASH   &kp RBRC        &none  &none      &none      &none     &none     &none
-                                                   &kp TILDE  &tog GAME  &trans    &none  &none  &none
-                >;
-        };
-
-        function_layer {
-            bindings = <
-                           &kp F12  &kp F7  &kp F8  &kp F9  &kp PSCRN              &bt BT_CLR  &none      &bt BT_NXT  &none     &none
-                &kp LCTRL  &kp F11  &kp F4  &kp F5  &kp F6  &kp PAUSE_BREAK        &none       &kp RSHFT  &kp RCTRL   &kp LALT  &kp RGUI  &none
-                &kp ENTER  &kp F10  &kp F1  &kp F2  &kp F3  &kp CAPS               &none       &none      &none       &none     &none     &none
-                                                 &trans  &kp C_NEXT  &kp C_PP    &trans  &none  &none
+            // +----------+----------+----------+----------+----------+----------+----------+----------+----------+----------
+                &none      &none      &none      &none      &none      &none      &none      &none      &none      &none
+                &none      &none      &none      &none      &none      &none      &none      &none      &none      &none
+                &none      &none      &none      &none      &none      &none      &none      &none      &none      &none
+                                      &trans     &trans     &trans     &trans     &trans     &trans
                 >;
         };
 
