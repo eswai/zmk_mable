@@ -96,6 +96,14 @@
         };
     };
 
+    conditional_layers {
+        compatible = "zmk,conditional-layers";
+        tri_layer {
+            if-layers = <1 2>;
+            then-layer = <3>;
+        };
+    };
+
     keymap {
         compatible = "zmk,keymap";
 
@@ -132,7 +140,7 @@
         adjust_layer {
             bindings = <
             // +----------+----------+----------+----------+----------+----------+----------+----------+----------+----------
-                &none      &none      &none      &none      &none      &none      &none      &none      &none      &none
+                &bt BT_CLR &none      &none      &none      &none      &none      &none      &none      &none      &none
                 &none      &none      &none      &none      &none      &none      &none      &none      &none      &none
                 &none      &none      &none      &none      &none      &none      &none      &none      &none      &none
                                       &trans     &trans     &trans     &trans     &trans     &trans
