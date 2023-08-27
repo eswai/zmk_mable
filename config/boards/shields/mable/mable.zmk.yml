@@ -1,12 +1,12 @@
 file_format: '1'
-id: pica40
-name: pica40
+id: mable
+name: mable
 type: shield
-url: https://github.com/zzeneg/pica40
+url: https://github.com/eswai/mable
 requires: [seeeduino_xiao_ble]
 features:
   - keys
   - encoder
 siblings:
-  - pica40_left
-  - pica40_right
+  - mable_left
+  - mable_right

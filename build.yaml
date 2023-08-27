@@ -5,7 +5,7 @@
 # the `include` property, e.g:
 #
 # board: [ "nice_nano_v2" ]
-# shield: [ "pica40_left", "pica40_right" ]
+# shield: [ "mable_left", "mable_right" ]
 # include:
 #   - board: bdn9_rev2
 #   - board: nice_nano_v2
@@ -14,8 +14,8 @@
 ---
 include:
   - board: seeeduino_xiao_ble
-    shield: pica40_left
+    shield: mable_left
   - board: seeeduino_xiao_ble
-    shield: pica40_right
-  - board: seeeduino_xiao_ble
-    shield: settings_reset
+    shield: mable_right
+  # - board: seeeduino_xiao_ble
+  #   shield: settings_reset
