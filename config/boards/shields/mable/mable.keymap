@@ -71,7 +71,7 @@
                 &ng Q      &ng W      &ng E      &ng R      &ng T      &ng Y      &ng U      &ng I      &ng O      &ng P
                 &ng A      &ng S      &ng D      &ng F      &ng G      &ng H      &ng J      &ng K      &ng L      &ng SEMI
                 &ng Z      &ng X      &ng C      &ng V      &ng B      &ng N      &ng M      &ng COMMA  &ng DOT    &ng SLASH
-                                      &kp LSHIFT &mo LOWER  &ng SPACE  &kp ENTER  &mo RAISE  &kp RCTRL
+                                      &kp LSHIFT &mo LOWER  &ng SPACE  &ng ENTER  &mo RAISE  &kp RCTRL
                 >;
         };
 
