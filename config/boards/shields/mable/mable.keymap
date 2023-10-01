@@ -25,7 +25,7 @@
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings
-                = <&macro_tap &kp LANGUAGE_1 &to 1>
+                = <&macro_tap &kp LANGUAGE_1 &kp INTERNATIONAL_4 &to 1>
                 ;
         };
         ng_off: ng_off {
@@ -33,7 +33,7 @@
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings
-                = <&macro_tap &kp LANGUAGE_2 &to 0>
+                = <&macro_tap &kp LANGUAGE_2 &kp INTERNATIONAL_5 &to 0>
                 ;
         };
     };
