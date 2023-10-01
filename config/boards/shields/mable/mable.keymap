@@ -3,18 +3,52 @@
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/outputs.h>
 
-#define DEFAULT 0
-#define LOWER   1
-#define RAISE   2
-#define ADJUST  3
+#define DEFAULT  0
+#define NAGINATA 1
+#define LOWER    2
+#define RAISE    3
+#define ADJUST   4
 
 / {
 
     conditional_layers {
         compatible = "zmk,conditional-layers";
         tri_layer {
-            if-layers = <1 2>;
-            then-layer = <3>;
+            if-layers = <2 3>;
+            then-layer = <4>;
+        };
+    };
+
+    macros {
+        ng_on: ng_on {
+            label = "ZM_ng_on";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&macro_tap &kp LANGUAGE_1 &to 1>
+                ;
+        };
+        ng_off: ng_off {
+            label = "ZM_ng_off";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&macro_tap &kp LANGUAGE_2 &to 0>
+                ;
+        };
+    };
+
+    combos {
+        compatible = "zmk,combos";
+        combo_ng_on {
+            timeout-ms = <300>;
+            key-positions = <15 16>;
+            bindings = <&ng_on>;
+        };
+        combo_ng_off {
+            timeout-ms = <300>;
+            key-positions = <13 14>;
+            bindings = <&ng_off>;
         };
     };
 
@@ -27,7 +61,17 @@
                 &kp Q      &kp W      &kp E      &kp R      &kp T      &kp Y      &kp U      &kp I      &kp O      &kp P
                 &kp A      &kp S      &kp D      &kp F      &kp G      &kp H      &kp J      &kp K      &kp L      &kp SEMI
                 &kp Z      &kp X      &kp C      &kp V      &kp B      &kp N      &kp M      &kp COMMA  &kp DOT    &kp SLASH
-                                      &kp LSHIFT &mo LOWER  &kp SPACE  &kp ENTER  &mo RAISE  &kp RCTRL
+                                      &kp LSHIFT &mo LOWER  &ng SPACE  &kp ENTER  &mo RAISE  &kp RCTRL
+                >;
+        };
+
+        naginata_layer {
+            bindings = <
+            // +----------+----------+----------+----------+----------+----------+----------+----------+----------+----------
+                &ng Q      &ng W      &ng E      &ng R      &ng T      &ng Y      &ng U      &ng I      &ng O      &ng P
+                &ng A      &ng S      &ng D      &ng F      &ng G      &ng H      &ng J      &ng K      &ng L      &ng SEMI
+                &ng Z      &ng X      &ng C      &ng V      &ng B      &ng N      &ng M      &ng COMMA  &ng DOT    &ng SLASH
+                                      &kp LSHIFT &mo LOWER  &ng SPACE  &kp ENTER  &mo RAISE  &kp RCTRL
                 >;
         };
 
@@ -55,7 +99,7 @@
             bindings = <
             // +-------- --+----------+----------+----------+----------+----------+----------+----------+----------+----------
                 &bootloader &bt BT_NXT &none      &none      &none      &none      &kp F7     &kp F8     &kp F9     &bootloader 
-                &sys_reset  &bt BT_PRV &none      &none      &none      &none      &kp F4     &kp F5     &kp F6     &sys_reset  
+                &sys_reset  &bt BT_PRV &none      &none      &ng_off    &ng_on     &kp F4     &kp F5     &kp F6     &sys_reset  
                 &bt BT_CLR  &none      &none      &none      &none      &kp F10    &kp F1     &kp F2     &kp F3     &none
                                        &trans     &trans     &trans     &trans     &trans     &trans
                 >;
