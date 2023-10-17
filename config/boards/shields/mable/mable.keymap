@@ -36,6 +36,100 @@
                 = <&macro_tap &kp LANGUAGE_2 &kp INTERNATIONAL_5 &to 0>
                 ;
         };
+
+        s_end_bs: s_end_bs {
+            label = "ZM_s_end_bs";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&macro_tap &kp LS(END) &kp BSPC>
+                ;
+        };
+
+        esc3: esc3 {
+            label = "ZM_esc3";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&macro_tap &kp ESC &kp ESC &kp ESC>
+                ;
+        };
+
+        ent_end: ent_end {
+            label = "ZM_ent_end";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&macro_tap &kp ENTER &kp END>
+                ;
+        };
+
+        s_up7: s_up7 {
+            label = "ZM_s_up7";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&macro_press &kp LSHFT>
+                , <&macro_tap &kp UP &kp UP &kp UP &kp UP &kp UP &kp UP &kp UP>
+                , <&macro_release &kp LSHFT>
+                ;
+        };
+
+        s_down7: s_down7 {
+            label = "ZM_s_down7";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&macro_press &kp LSHFT>
+                , <&macro_tap &kp DOWN &kp DOWN &kp DOWN &kp DOWN &kp DOWN &kp DOWN &kp DOWN>
+                , <&macro_release &kp LSHFT>
+                ;
+        };
+
+        s_right5: s_right5 {
+            label = "ZM_s_right5";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&macro_press &kp LSHFT>
+                , <&macro_tap &kp RIGHT &kp RIGHT &kp RIGHT &kp RIGHT &kp RIGHT>
+                , <&macro_release &kp LSHFT>
+                ;
+        };
+
+        s_left5: s_left5 {
+            label = "ZM_s_left5";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&macro_press &kp LSHFT>
+                , <&macro_tap &kp LEFT &kp LEFT &kp LEFT &kp LEFT &kp LEFT>
+                , <&macro_release &kp LSHFT>
+                ;
+        };
+
+        s_right20: s_right20 {
+            label = "ZM_s_right20";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&macro_press &kp LSHFT>
+                , <&macro_tap &kp RIGHT &kp RIGHT &kp RIGHT &kp RIGHT &kp RIGHT &kp RIGHT &kp RIGHT &kp RIGHT &kp RIGHT &kp RIGHT &kp RIGHT &kp RIGHT &kp RIGHT &kp RIGHT &kp RIGHT &kp RIGHT &kp RIGHT &kp RIGHT &kp RIGHT &kp RIGHT>
+                , <&macro_release &kp LSHFT>
+                ;
+        };
+
+        s_left20: s_left20 {
+            label = "ZM_s_left20";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&macro_press &kp LSHFT>
+                , <&macro_tap &kp LEFT &kp LEFT &kp LEFT &kp LEFT &kp LEFT &kp LEFT &kp LEFT &kp LEFT &kp LEFT &kp LEFT &kp LEFT &kp LEFT &kp LEFT &kp LEFT &kp LEFT &kp LEFT &kp LEFT &kp LEFT &kp LEFT &kp LEFT>
+                , <&macro_release &kp LSHFT>
+                ;
+        };
+
     };
 
     combos {
@@ -49,6 +143,26 @@
             timeout-ms = <300>;
             key-positions = <13 14>;
             bindings = <&ng_off>;
+        };
+        combo_henshu1_right {
+            timeout-ms = <300>;
+            key-positions = <12 13>;
+            bindings = <&mo 5>;
+        };
+        combo_henshu1_left {
+            timeout-ms = <300>;
+            key-positions = <14 15>;
+            bindings = <&mo 5>;
+        };
+        combo_henshu2_right {
+            timeout-ms = <300>;
+            key-positions = <22 23>;
+            bindings = <&mo 6>;
+        };
+        combo_henshu2_left {
+            timeout-ms = <300>;
+            key-positions = <24 25>;
+            bindings = <&mo 6>;
         };
     };
 
@@ -74,7 +188,7 @@
                                       &kp LSHIFT &mo LOWER  &ng SPACE  &ng ENTER  &mo RAISE  &kp RCTRL
                 >;
         };
-
+ 
         lower_layer {
             bindings = <
             // +----------+----------+----------+----------+----------+----------+----------+----------+----------+----------
@@ -97,11 +211,47 @@
 
         adjust_layer {
             bindings = <
-            // +-------- --+----------+----------+----------+----------+----------+----------+----------+----------+----------
+            // +---------- +----------+----------+----------+----------+----------+----------+----------+----------+----------
                 &bootloader &bt BT_NXT &none      &none      &none      &none      &kp F7     &kp F8     &kp F9     &bootloader 
                 &sys_reset  &bt BT_PRV &none      &none      &ng_off    &ng_on     &kp F4     &kp F5     &kp F6     &sys_reset  
                 &bt BT_CLR  &none      &none      &none      &none      &kp F10    &kp F1     &kp F2     &kp F3     &none
                                        &trans     &trans     &trans     &trans     &trans     &trans
+                >;
+        };
+
+        // ^{End}    |『』{改行}{↑}|/*ディ*/|^s            |・            ||||||||
+        // ……{改行}|(){改行}{↑}  |？{改行}|「」{改行}{↑}|《》{改行}{↑}||||||||
+        // ――{改行}|【】{改行}{↑}|！{改行}|{改行}{↓}    |{改行}{←}    |||||||
+
+        // |||||{Home}      |+{End}{BS}|{vk1Csc079}|{Del}  |{Esc 3}|  |  |
+        // |||||{Enter}{End}|{↑}      |+{↑}      |+{↑ 7}|^i     |  |  |
+        // |||||{End}       |{↓}      |+{↓}      |+{↓ 7}|^u     |  |
+
+        henshu1_layer {
+            bindings = <
+            // +---------- +----------+----------+----------+----------+----------+----------+----------　+----------+----------
+                &kp LC(END) &none      &none      &kp LC(S)  &none      &kp HOME   &s_end_bs  &kp INT4     &kp DEL    &esc3
+                &none       &none      &none      &none      &none      &ent_end   &kp UP     &kp LS(UP)   &s_up7     &kp LC(I)
+                &none       &none      &none      &none      &none      &kp END    &kp DOWN   &kp LS(DOWN) &s_down7   &kp LC(U)
+                                       &trans     &trans     &trans     &trans     &trans     &trans
+                >;
+        };
+
+        // {Home}{→}{End}{Del 4}{←}      |^x『^v』{改行}{Space}+{↑}^x|{Home}{改行}{Space 3}{←}|{Space 3}                      |〇{改行}                                ||||||||
+        // {Home}{→}{End}{Del 2}{←}      |^x(^v){改行}{Space}+{↑}^x  |{Home}{改行}{Space 1}{←}|^x「^v」{改行}{Space}+{↑}^x   |^x｜{改行}^v《》{改行}{↑}{Space}+{↑}^x||||||||
+        // 　　　×　　　×　　　×{改行 2}|^x【^v】{改行}{Space}+{↑}^x|／{改行}                 |{改行}{End}{改行}「」{改行}{↑}|{改行}{End}{改行}{Space}                |||||||
+
+        // |||||+{Home}|^x  |^v   |^y      |^z      |  |  |
+        // |||||^c     |{→}|+{→}|+{→ 5} |+{→ 20}|  |  |
+        // |||||+{End} |{←}|+{←}|+{← 5} |+{← 20}|  |
+
+        henshu2_layer {
+            bindings = <
+            // +----------+----------+----------+----------+----------+----------  +----------+----------   +----------+----------
+                &none      &none      &none      &none      &none      &kp LS(HOME) &kp LC(X)  &kp LC(V)     &kp LC(Y)  &kp LC(Z)      
+                &none      &none      &none      &none      &none      &kp LC(C)    &kp RIGHT  &kp LS(RIGHT) &s_right5  &s_right20      
+                &none      &none      &none      &none      &none      &kp LS(END)  &kp LEFT   &kp LS(LEFT)  &s_left5   &s_left20 
+                                      &trans     &trans     &trans     &trans       &trans     &trans
                 >;
         };
 
