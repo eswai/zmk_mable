@@ -3,11 +3,16 @@
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/outputs.h>
 
+#define HOST_OS 2
+#include "unicode.h"
+
 #define DEFAULT  0
 #define NAGINATA 1
 #define LOWER    2
 #define RAISE    3
 #define ADJUST   4
+
+ZMK_UNICODE_SINGLE(nagaguro, N3, N0, F, B)
 
 / {
 
@@ -34,6 +39,15 @@
             #binding-cells = <0>;
             bindings
                 = <&macro_tap &kp LANGUAGE_2 &kp INTERNATIONAL_5 &to 0>
+                ;
+        };
+
+        dhi: dhi {
+            label = "ZM_dhi";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&macro_tap &kp D &kp H &kp I>
                 ;
         };
 
@@ -151,7 +165,7 @@
         };
         combo_henshu1_left {
             timeout-ms = <300>;
-            key-positions = <14 15>;
+            key-positions = <16 17>;
             bindings = <&mo 5>;
         };
         combo_henshu2_right {
@@ -161,7 +175,7 @@
         };
         combo_henshu2_left {
             timeout-ms = <300>;
-            key-positions = <24 25>;
+            key-positions = <26 27>;
             bindings = <&mo 6>;
         };
     };
@@ -229,11 +243,11 @@
 
         henshu1_layer {
             bindings = <
-            // +---------- +----------+----------+----------+----------+----------+----------+----------　+----------+----------
-                &kp LC(END) &none      &none      &kp LC(S)  &none      &kp HOME   &s_end_bs  &kp INT4     &kp DEL    &esc3
-                &none       &none      &none      &none      &none      &ent_end   &kp UP     &kp LS(UP)   &s_up7     &kp LC(I)
-                &none       &none      &none      &none      &none      &kp END    &kp DOWN   &kp LS(DOWN) &s_down7   &kp LC(U)
-                                       &trans     &trans     &trans     &trans     &trans     &trans
+            // +---------- +----------+----------   +----------+----------+----------+----------+----------　+----------+----------
+                &kp LC(END) &none      &dhi          &kp LC(S)  &nagaguro  &kp HOME   &s_end_bs  &kp INT4     &kp DEL    &esc3
+                &none       &none      &kp LC(SLASH) &none      &none      &ent_end   &kp UP     &kp LS(UP)   &s_up7     &kp LC(I)
+                &none       &none      &kp LC(N1)    &none      &none      &kp END    &kp DOWN   &kp LS(DOWN) &s_down7   &kp LC(U)
+                                       &trans        &trans     &trans     &trans     &trans     &trans
                 >;
         };
 
