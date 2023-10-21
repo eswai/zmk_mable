@@ -105,7 +105,7 @@
 
 #if !defined OS_UNICODE_LEAD
     #if HOST_OS == 2
-        #define OS_UNICODE_LEAD <&macro_tap &kp LANGUAGE_2 &kp LC(F20)>, <&macro_wait_time 100>, <&macro_press &kp LALT>, <&macro_wait_time 100>      // macOS/Windows-Alt-Codes
+        #define OS_UNICODE_LEAD <&macro_tap &kp LANGUAGE_2 &kp LC(F20)>, <&macro_press &kp LALT>      // macOS/Windows-Alt-Codes
     #elif HOST_OS == 1
         #define OS_UNICODE_LEAD <&macro_tap &kp LS(LC(U))>   // Linux
     #else
@@ -114,7 +114,7 @@
 #endif
 #if !defined OS_UNICODE_TRAIL
     #if HOST_OS == 2
-        #define OS_UNICODE_TRAIL <&macro_wait_time 100>, <&macro_release &kp LALT>, <&macro_wait_time 100>, <&macro_tap &kp LS(LANGUAGE_1) &kp LANGUAGE_1>  // macOS/Windows-Alt-Codes
+        #define OS_UNICODE_TRAIL <&macro_release &kp LALT>, <&macro_tap &kp LS(LANGUAGE_1) &kp LANGUAGE_1>  // macOS/Windows-Alt-Codes
     #elif HOST_OS == 1
         #define OS_UNICODE_TRAIL <&macro_tap &kp SPACE>     // Linux
     #else
@@ -128,8 +128,8 @@
             name: name { \
                 compatible = "zmk,behavior-macro"; \
                 label = ZMK_HELPER_STRINGIFY(UC_MACRO_ ## name); \
-                wait-ms = <0>; \
-                tap-ms = <0>; \
+                wait-ms = <30>; \
+                tap-ms = <30>; \
                 #binding-cells = <0>; \
                 bindings = OS_UNICODE_LEAD, <&macro_tap unicode_bindings>, OS_UNICODE_TRAIL; \
             }; \
