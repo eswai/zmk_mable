@@ -37,4 +37,3 @@
 #define JP_RT    LS(JP_DOT)   // >
 #define JP_QMARK LS(JP_SLASH) // ?
 #define JP_UNDER LS(JP_BSLH)  // _
-#define JP_GRAVE GRAVE        // `
