@@ -16,21 +16,21 @@
 #define CONFIG_ZMK_MACRO_DEFAULT_WAIT_MS 40
 #define CONFIG_ZMK_MACRO_DEFAULT_TAP_MS 40
 
-ZMK_UNICODE_SINGLE(nagaguro, N3, N0, F, B) // ・
-ZMK_UNICODE_SINGLE(tenten,   N2, N0, N2, N6) // …
-ZMK_UNICODE_SINGLE(zhyphen,  N2, N0, N1, N5) // ―
-ZMK_UNICODE_SINGLE(maru,     N3, N0, N0, N7) // 〇
-ZMK_UNICODE_SINGLE(batsu,    C, N3, N9, N7) // ×
-ZMK_UNICODE_SINGLE(kakko1l,  N3, N0, N0, C) // 「
-ZMK_UNICODE_SINGLE(kakko1r,  N3, N0, N0, D) // 」
-ZMK_UNICODE_SINGLE(kakko2l,  N3, N0, N0, E) // 『
-ZMK_UNICODE_SINGLE(kakko2r,  N3, N0, N0, F) // 』
-ZMK_UNICODE_SINGLE(kakko3l,  N3, N0, N1, N0) // 【
-ZMK_UNICODE_SINGLE(kakko3r,  N3, N0, N1, N1) // 】
-ZMK_UNICODE_SINGLE(kakko4l,  N3, N0, N0, A) // 《
-ZMK_UNICODE_SINGLE(kakko4r,  N3, N0, N0, B) // 》
-ZMK_UNICODE_SINGLE(kakko5l,  F, F, N0, N8) // （
-ZMK_UNICODE_SINGLE(kakko5r,  F, F, N0, N9) // ）
+// ZMK_UNICODE_SINGLE(nagaguro, N3, N0, F, B) // ・
+// ZMK_UNICODE_SINGLE(tenten,   N2, N0, N2, N6) // …
+// ZMK_UNICODE_SINGLE(zhyphen,  N2, N0, N1, N5) // ―
+// ZMK_UNICODE_SINGLE(maru,     N3, N0, N0, N7) // 〇
+// ZMK_UNICODE_SINGLE(batsu,    C, N3, N9, N7) // ×
+// ZMK_UNICODE_SINGLE(kakko1l,  N3, N0, N0, C) // 「
+// ZMK_UNICODE_SINGLE(kakko1r,  N3, N0, N0, D) // 」
+// ZMK_UNICODE_SINGLE(kakko2l,  N3, N0, N0, E) // 『
+// ZMK_UNICODE_SINGLE(kakko2r,  N3, N0, N0, F) // 』
+// ZMK_UNICODE_SINGLE(kakko3l,  N3, N0, N1, N0) // 【
+// ZMK_UNICODE_SINGLE(kakko3r,  N3, N0, N1, N1) // 】
+// ZMK_UNICODE_SINGLE(kakko4l,  N3, N0, N0, A) // 《
+// ZMK_UNICODE_SINGLE(kakko4r,  N3, N0, N0, B) // 》
+// ZMK_UNICODE_SINGLE(kakko5l,  F, F, N0, N8) // （
+// ZMK_UNICODE_SINGLE(kakko5r,  F, F, N0, N9) // ）
 
 / {
 
@@ -44,7 +44,7 @@ ZMK_UNICODE_SINGLE(kakko5r,  F, F, N0, N9) // ）
 
     macros {
         ng_on: ng_on {
-            label = "ZM_ng_on";
+//            label = "ZM_ng_on";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings
@@ -52,7 +52,7 @@ ZMK_UNICODE_SINGLE(kakko5r,  F, F, N0, N9) // ）
                 ;
         };
         ng_off: ng_off {
-            label = "ZM_ng_off";
+//            label = "ZM_ng_off";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings
