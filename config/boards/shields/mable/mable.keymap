@@ -73,7 +73,7 @@
             timeout-ms = <300>;
             key-positions = <13 14>;
             bindings = <&ng_off>;
-            layers = <1>;
+            layers = <0 1>;
         };
     };
 
