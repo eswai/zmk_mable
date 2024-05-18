@@ -30,8 +30,8 @@
     kscan2:kscan_matrix {
         compatible = "zmk,kscan-gpio-matrix";
         diode-direction = "col2row";
-
         wakeup-source;
+        
         col-gpios
             = <&xiao_d 10 GPIO_ACTIVE_HIGH>
             , <&xiao_d  8 GPIO_ACTIVE_HIGH>

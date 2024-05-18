@@ -65,13 +65,13 @@
         compatible = "zmk,combos";
         combo_ng_on {
             timeout-ms = <300>;
-            key-positions = <15 16>;
+            key-positions = <16 17>;
             bindings = <&ng_on>;
             layers = <0>;
         };
         combo_ng_off {
             timeout-ms = <300>;
-            key-positions = <13 14>;
+            key-positions = <14 15>;
             bindings = <&ng_off>;
             layers = <0 1>;
         };

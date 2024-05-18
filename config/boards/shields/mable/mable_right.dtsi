@@ -7,7 +7,6 @@
 #include "mable.dtsi"
 
 / {
-
     kscan0: kscan_composite {
         compatible = "zmk,kscan-composite";
         columns = <10>;
@@ -33,6 +32,7 @@
         compatible = "zmk,kscan-gpio-matrix";
         diode-direction = "col2row";
         wakeup-source;
+        
         col-gpios
             = <&xiao_d  1 GPIO_ACTIVE_HIGH>
             , <&xiao_d  5 GPIO_ACTIVE_HIGH>

@@ -1,39 +1,39 @@
-if SHIELD_MABLE_DONGLE || SHIELD_MABLE_LEFT || SHIELD_MABLE_RIGHT
+# Copyright (c) 2022 ZMK Contributors
+# SPDX-License-Identifier: MIT
 
-config ZMK_BLE
-    default y
+if SHIELD_MABLE_DONGLE
 
 config ZMK_KEYBOARD_NAME
     default "mable"
 
-config ZMK_SPLIT
-    default y
-
-config ZMK_SPLIT_BLE_CENTRAL_PERIPHERALS
-    default 2
-
-config BT_MAX_PAIRED
-    default 7
-
-config BT_MAX_CONN
-    default 7
-
-endif
-
-if SHIELD_MABLE_DONGLE
-
-config ZMK_USB
-    default y
-
 config ZMK_SPLIT_ROLE_CENTRAL
     default y
 
-endif
-
-if SHIELD_MABLE_LEFT || SHIELD_MABLE_RIGHT
-
 config ZMK_USB
-    default n
+    default y
+
+endif
+ 
+if SHIELD_MABLE_LEFT
+
+config ZMK_KEYBOARD_NAME
+	default "mable left"
 
 endif
 
+if SHIELD_MABLE_RIGHT
+
+config ZMK_KEYBOARD_NAME
+	default "mable right"
+
+endif
+
+if SHIELD_MABLE_LEFT || SHIELD_MABLE_RIGHT || SHIELD_MABLE_DONGLE
+
+config ZMK_SPLIT
+	default y
+
+config ZMK_BLE
+    default y
+	
+endif
