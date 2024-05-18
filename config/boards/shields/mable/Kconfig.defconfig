@@ -1,22 +1,12 @@
-if SHIELD_MABLE_DONGLE || SHIELD_MABLE_LEFT || SHIELD_MABLE_LEFT
+if SHIELD_MABLE_DONGLE || SHIELD_MABLE_LEFT || SHIELD_MABLE_RIGHT
 
 config ZMK_BLE
-    default y
-
-config ZMK_USB
     default y
 
 config ZMK_KEYBOARD_NAME
     default "mable"
 
-endif
-
-if SHIELD_MABLE_DONGLE
-
 config ZMK_SPLIT
-    default y
-
-config ZMK_SPLIT_ROLE_CENTRAL
     default y
 
 config ZMK_SPLIT_BLE_CENTRAL_PERIPHERALS
@@ -28,13 +18,22 @@ config BT_MAX_PAIRED
 config BT_MAX_CONN
     default 7
 
-config ZMK_SPLIT_BLE_PREF_INT
-    default 6
+endif
 
-config ZMK_SPLIT_BLE_PREF_LATENCY
-    default 399
+if SHIELD_MABLE_DONGLE
 
-config ZMK_SPLIT_BLE_PREF_TIMEOUT
-    default 900
+config ZMK_USB
+    default y
+
+config ZMK_SPLIT_ROLE_CENTRAL
+    default y
 
 endif
+
+if SHIELD_MABLE_LEFT || SHIELD_MABLE_RIGHT
+
+config ZMK_USB
+    default n
+
+endif
+

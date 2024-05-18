@@ -27,7 +27,7 @@
         input-gpios = <&gpio0 15 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
     };
 
-    kscan2:kscan {
+    kscan2:kscan_matrix {
         compatible = "zmk,kscan-gpio-matrix";
         diode-direction = "col2row";
 
