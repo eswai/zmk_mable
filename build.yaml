@@ -11,11 +11,16 @@
 #   - board: nice_nano_v2
 #     shield: reviung41
 #
+# https://github.com/slicemk/zmk/tree/main/app/boards/arm/raytac_mdbt50q_rx
 ---
 include:
+  - board: raytac_mdbt50q_rx
+    shield: mable_dongle
   - board: seeeduino_xiao_ble
     shield: mable_left
   - board: seeeduino_xiao_ble
     shield: mable_right
+  - board: raytac_mdbt50q_rx
+    shield: settings_reset
   - board: seeeduino_xiao_ble
     shield: settings_reset

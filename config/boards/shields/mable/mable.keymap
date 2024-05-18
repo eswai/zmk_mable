@@ -83,6 +83,7 @@
         default_layer {
             bindings = <
             // +----------+----------+----------+----------+----------+----------+----------+----------+----------+----------
+                &bootloader
                 &kp Q      &kp W      &kp E      &kp R      &kp T      &kp Y      &kp U      &kp I      &kp O      &kp P
                 &kp A      &kp S      &kp D      &kp F      &kp G      &kp H      &kp J      &kp K      &kp L      &kp SEMI
                 &kp Z      &kp X      &kp C      &kp V      &kp B      &kp N      &kp M      &kp COMMA  &kp DOT    &kp SLASH
@@ -93,6 +94,7 @@
         naginata_layer {
             bindings = <
             // +----------+----------+----------+----------+----------+----------+----------+----------+----------+----------
+                &bootloader
                 &ng Q      &ng W      &ng E      &ng R      &ng T      &ng Y      &ng U      &ng I      &ng O      &ng P
                 &ng A      &ng S      &ng D      &ng F      &ng G      &ng H      &ng J      &ng K      &ng L      &ng SEMI
                 &ng Z      &ng X      &ng C      &ng V      &ng B      &ng N      &ng M      &ng COMMA  &ng DOT    &ng SLASH
@@ -103,6 +105,7 @@
         lower_layer {
             bindings = <
             // +-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+----------
+                &bootloader
                 &kp TAB     &kp JP_COLON  &kp JP_SEMI   &kp JP_DQT    &kp SQT    &kp JP_SLASH  &kp N7     &kp N8     &kp N9     &kp JP_MINUS
                 &kp ESC     &kp JP_LBKT   &kp JP_LBRC   &kp JP_LPAR   &none      &kp JP_ASTRK  &kp N4     &kp N5     &kp N6     &kp JP_PLUS
                 &none       &kp JP_RBKT   &kp JP_RBRC   &kp JP_RPAR   &none      &kp N0        &kp N1     &kp N2     &kp N3     &kp JP_EQUAL     
@@ -113,6 +116,7 @@
         raise_layer {
             bindings = <
             // +----------+----------+----------+----------+----------+----------+----------+----------+----------+----------
+                &bootloader
                 &kp JP_TILDE  &kp JP_AT     &kp JP_HASH   &kp JP_DLLR   &kp LG(X)  &kp LG(Z)   &kp HOME   &kp UP     &kp END    &kp BSPC
                 &kp JP_CARET  &kp JP_AMPS   &kp JP_QMARK  &kp JP_PRCNT  &kp LG(C)  &kp LG(S)   &kp LEFT   &kp DOWN   &kp RIGHT  &kp DEL
                 &kp JP_GRAVE  &kp JP_PIPE   &kp JP_EXCL   &kp JP_UNDER  &kp LG(V)  &kp LG(Y)   &none      &none      &none      &none
@@ -123,6 +127,7 @@
         adjust_layer {
             bindings = <
             // +---------- +----------+----------+----------+----------+----------+----------+----------+----------+----------
+                &bootloader
                 &bootloader &bt BT_NXT &none      &none      &none      &none      &kp F7     &kp F8     &kp F9     &bootloader 
                 &sys_reset  &bt BT_PRV &none      &none      &ng_off    &ng_on     &kp F4     &kp F5     &kp F6     &sys_reset  
                 &bt BT_CLR  &none      &none      &none      &none      &kp F10    &kp F1     &kp F2     &kp F3     &none

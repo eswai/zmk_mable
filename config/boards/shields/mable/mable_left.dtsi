@@ -1,0 +1,49 @@
+/*
+ * Copyright (c) 2020 The ZMK Contributors
+ *
+ * SPDX-License-Identifier: MIT
+ */
+
+#include "mable.dtsi"
+
+/ {
+    kscan0: kscan_composite {
+        compatible = "zmk,kscan-composite";
+        columns = <10>;
+        rows = <5>;
+
+        direct {
+            kscan = <&kscan1>;
+        };
+
+        matrix {
+            kscan = <&kscan2>;
+            row-offset = <1>;
+        };
+    };
+
+    kscan1: kscan_direct {
+        compatible = "zmk,kscan-gpio-direct";
+        input-gpios = <&gpio0 15 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
+    };
+
+    kscan2:kscan {
+        compatible = "zmk,kscan-gpio-matrix";
+        diode-direction = "col2row";
+
+        wakeup-source;
+        col-gpios
+            = <&xiao_d 10 GPIO_ACTIVE_HIGH>
+            , <&xiao_d  8 GPIO_ACTIVE_HIGH>
+            , <&xiao_d  4 GPIO_ACTIVE_HIGH>
+            , <&xiao_d  5 GPIO_ACTIVE_HIGH>
+            , <&xiao_d  1 GPIO_ACTIVE_HIGH>
+            ;
+        row-gpios
+            = <&xiao_d 2 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+            , <&xiao_d 3 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+            , <&xiao_d 0 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+            , <&xiao_d 9 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+            ;
+    };
+};

@@ -3,9 +3,10 @@ id: mable
 name: mable
 type: shield
 url: https://github.com/eswai/mable
-requires: [seeeduino_xiao_ble]
+requires: [seeeduino_xiao_ble, raytac_mdbt50q_rx]
 features:
   - keys
 siblings:
+  - mable_dongle
   - mable_left
   - mable_right

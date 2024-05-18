@@ -1,19 +1,40 @@
-# Copyright (c) 2020 The ZMK Contributors
-# SPDX-License-Identifier: MIT
+if SHIELD_MABLE_DONGLE || SHIELD_MABLE_LEFT || SHIELD_MABLE_LEFT
 
-if SHIELD_MABLE_LEFT
+config ZMK_BLE
+    default y
+
+config ZMK_USB
+    default y
 
 config ZMK_KEYBOARD_NAME
-	default "mable"
-
-config ZMK_SPLIT_ROLE_CENTRAL
-	default y
+    default "mable"
 
 endif
 
-if SHIELD_MABLE_LEFT || SHIELD_MABLE_RIGHT
+if SHIELD_MABLE_DONGLE
 
 config ZMK_SPLIT
-	default y
+    default y
+
+config ZMK_SPLIT_ROLE_CENTRAL
+    default y
+
+config ZMK_SPLIT_BLE_CENTRAL_PERIPHERALS
+    default 2
+
+config BT_MAX_PAIRED
+    default 7
+
+config BT_MAX_CONN
+    default 7
+
+config ZMK_SPLIT_BLE_PREF_INT
+    default 6
+
+config ZMK_SPLIT_BLE_PREF_LATENCY
+    default 399
+
+config ZMK_SPLIT_BLE_PREF_TIMEOUT
+    default 900
 
 endif
