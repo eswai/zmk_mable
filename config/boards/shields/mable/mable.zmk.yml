@@ -9,3 +9,5 @@ features:
 siblings:
   - mable_left
   - mable_right
+  - mable_dongle
+  
