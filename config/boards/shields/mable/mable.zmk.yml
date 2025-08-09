@@ -1,6 +1,6 @@
 file_format: '1'
 id: mable
-name: mable
+name: mable mx
 type: shield
 url: https://github.com/eswai/mable
 requires: [seeeduino_xiao_ble]

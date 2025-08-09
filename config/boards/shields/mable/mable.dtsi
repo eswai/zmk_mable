@@ -5,13 +5,14 @@
  */
 
 #include <dt-bindings/zmk/matrix_transform.h>
+#include "./mable-layouts.dtsi"
 
 / {
     chosen {
         zmk,kscan = &kscan0;
-        zmk,matrix_transform = &default_transform;
-        /* /delete-property/ zephyr,console; */
-        /* /delete-property/ zephyr,shell-uart; */
+        zmk,physical-layout = &mable_physical_layout;
+        zmk,kscan = &kscan0;
+        transform = <&default_transform>;
     };
 
     default_transform: keymap_transform_0 {

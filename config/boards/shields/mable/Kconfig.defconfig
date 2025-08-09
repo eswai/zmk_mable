@@ -4,7 +4,7 @@
 if SHIELD_MABLE_LEFT
 
 config ZMK_KEYBOARD_NAME
-	default "mable"
+	default "mable mx"
 
 config ZMK_SPLIT_ROLE_CENTRAL
 	default y

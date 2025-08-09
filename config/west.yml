@@ -2,10 +2,31 @@ manifest:
   remotes:
     - name: zmkfirmware
       url-base: https://github.com/zmkfirmware
+    - name: caksoylar  # zmk-rgbled-widget
+      url-base: https://github.com/caksoylar
+    - name: urob
+      url-base: https://github.com/urob
+    - name: eswai
+      url-base: https://github.com/eswai
+    - name: prospector
+      url-base: https://github.com/t-ogura
   projects:
     - name: zmk
       remote: zmkfirmware
       revision: main
       import: app/west.yml
+    - name: zmk-rgbled-widget
+      remote: caksoylar
+      revision: main
+    - name: zmk-helpers
+      remote: urob
+      revision: main
+    - name: zmk-naginata
+      remote: eswai
+      revision: main
+    - name: prospector-zmk-module
+      remote: prospector
+      revision: v1.0.0
+      path: modules/prospector-zmk-module
   self:
     path: config
